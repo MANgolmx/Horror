@@ -70,8 +70,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (isRunning) {
             speed *= runSpeedMul;
+            sideSpeed *= runSpeedMul;
         } else if (!isRunning) {
             speed /= runSpeedMul;
+            sideSpeed /= runSpeedMul;
         }
     }
 
