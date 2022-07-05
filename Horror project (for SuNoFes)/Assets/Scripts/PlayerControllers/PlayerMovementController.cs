@@ -7,6 +7,8 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody rb;
     private Camera playerCamera;
 
+    private Animator cameraAnimator;
+
     private bool isCrouching;
     private bool isRunning;
 
@@ -26,6 +28,8 @@ public class PlayerMovementController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         playerCamera = Component.FindObjectOfType<Camera>();
+        cameraAnimator = playerCamera.GetComponent<Animator>();
+
         isCrouching = false;
         isRunning = false;
     }
@@ -55,6 +59,8 @@ public class PlayerMovementController : MonoBehaviour
 
             speed *= crouchSpeedMul;
             sideSpeed *= crouchSpeedMul;
+
+            cameraAnimator.SetBool("isCrouching", true);
         } else if (!isCrouching) {
             playerCamera.transform.position += new Vector3(0.0f, 0.8f, 0.0f);
 
@@ -63,6 +69,7 @@ public class PlayerMovementController : MonoBehaviour
 
             speed /= crouchSpeedMul;
             sideSpeed /= crouchSpeedMul;
+            cameraAnimator.SetBool("isCrouching", false);
         }
     }
 
