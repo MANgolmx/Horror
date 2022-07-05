@@ -8,6 +8,7 @@ public class PlayerMovementController : MonoBehaviour
     private Camera playerCamera;
 
     private bool isCrouching;
+    private bool isRunning;
 
     public CapsuleCollider standingCollider;
     public CapsuleCollider crouchingCollider;
@@ -16,6 +17,7 @@ public class PlayerMovementController : MonoBehaviour
     public float sideSpeed;
 
     public float crouchSpeedMul;
+    public float runSpeedMul;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class PlayerMovementController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerCamera = Component.FindObjectOfType<Camera>();
         isCrouching = false;
+        isRunning = false;
     }
 
     private void FixedUpdate()
@@ -33,13 +36,16 @@ public class PlayerMovementController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl)) { isCrouching = true; ChangeIdolState(); }
-        if (Input.GetKeyUp(KeyCode.LeftControl)) { isCrouching = false; ChangeIdolState(); }
+        if (Input.GetKeyDown(KeyCode.LeftControl)) { isCrouching = true; ChangeCrouchState(); }
+        if (Input.GetKeyUp(KeyCode.LeftControl)) { isCrouching = false; ChangeCrouchState(); }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) { isRunning = true; ChangeRunningState(); }
+        if (Input.GetKeyUp(KeyCode.LeftShift)) { isRunning = false; ChangeRunningState(); }
 
     }
 
-    //Changing states from Standing to Crouching
-    private void ChangeIdolState()
+    //Changing player states
+    private void ChangeCrouchState()
     {
         if (isCrouching) {
             playerCamera.transform.position -= new Vector3(0.0f, 0.8f, 0.0f);
@@ -57,6 +63,15 @@ public class PlayerMovementController : MonoBehaviour
 
             speed /= crouchSpeedMul;
             sideSpeed /= crouchSpeedMul;
+        }
+    }
+
+    private void ChangeRunningState()
+    {
+        if (isRunning) {
+            speed *= runSpeedMul;
+        } else if (!isRunning) {
+            speed /= runSpeedMul;
         }
     }
 
