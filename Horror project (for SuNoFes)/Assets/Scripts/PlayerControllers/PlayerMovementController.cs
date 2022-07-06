@@ -45,6 +45,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) { isRunning = true; ChangeRunningState(); }
         if (Input.GetKeyUp(KeyCode.LeftShift)) { isRunning = false; ChangeRunningState(); }
+
     }
 
     //Changing player states
@@ -91,6 +92,7 @@ public class PlayerMovementController : MonoBehaviour
 
         Vector3 horizontalMove = Vector3.right * horizontalInput * sideSpeed;
         Vector3 vertcalMove = Vector3.forward * verticalInput * speed;
+        cameraAnimator.SetFloat("speed", vertcalMove.z);
 
         Vector3 move = horizontalMove + vertcalMove;
 
