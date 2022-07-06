@@ -45,7 +45,6 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) { isRunning = true; ChangeRunningState(); }
         if (Input.GetKeyUp(KeyCode.LeftShift)) { isRunning = false; ChangeRunningState(); }
-
     }
 
     //Changing player states

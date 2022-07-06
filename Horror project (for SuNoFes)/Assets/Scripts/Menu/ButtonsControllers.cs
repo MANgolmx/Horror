@@ -18,7 +18,6 @@ public class ButtonsControllers : MonoBehaviour
 
     public void onPlayClick()
     {
-        SceneManager.LoadScene(1);
-        Debug.Log("Loading GameScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
