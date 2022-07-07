@@ -18,8 +18,10 @@ public class PlayerMouseRotationController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         playerCamera = Component.FindObjectOfType<Camera>();
 
-        mouseXRotation = GameObject.FindGameObjectWithTag("EventManager").GetComponent<ButtonsControllers>().mouseSensetivity;
-        mouseYRotation = mouseXRotation / 2 + mouseXRotation / 3;
+        if (GameObject.FindGameObjectWithTag("SettingsController") != null)
+            mouseXRotation = GameObject.FindGameObjectWithTag("SettingsController").GetComponent<SettingsController>().mouseSensetivity;
+        else mouseXRotation = 400f;
+        mouseYRotation = mouseXRotation / 2 + mouseXRotation / 10;
     }
 
     private void LateUpdate()

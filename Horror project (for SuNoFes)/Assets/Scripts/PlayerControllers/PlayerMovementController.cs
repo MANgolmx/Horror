@@ -12,6 +12,8 @@ public class PlayerMovementController : MonoBehaviour
     private bool isCrouching;
     private bool isRunning;
 
+    [HideInInspector] public Vector3 movingSpeed;
+
     public CapsuleCollider standingCollider;
     public CapsuleCollider crouchingCollider;
 
@@ -92,10 +94,9 @@ public class PlayerMovementController : MonoBehaviour
 
         Vector3 horizontalMove = Vector3.right * horizontalInput * sideSpeed;
         Vector3 vertcalMove = Vector3.forward * verticalInput * speed;
-        cameraAnimator.SetFloat("speed", vertcalMove.z);
 
-        Vector3 move = horizontalMove + vertcalMove;
+        movingSpeed = horizontalMove + vertcalMove;
 
-        transform.Translate(move);
+        transform.Translate(movingSpeed);
     }
 }

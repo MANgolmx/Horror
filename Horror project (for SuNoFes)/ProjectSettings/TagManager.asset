@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - EventManager
+  - SettingsController
   layers:
   - Default
   - TransparentFX

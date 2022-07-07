@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ButtonsControllers : MonoBehaviour
 {
-    public float mouseSensetivity;
+    private SettingsController settingsController;
 
     public GameObject menu;
     public GameObject settings;
@@ -14,7 +14,7 @@ public class ButtonsControllers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        settingsController = GameObject.FindGameObjectWithTag("SettingsController").GetComponent<SettingsController>();
     }
 
     // Update is called once per frame
@@ -35,12 +35,11 @@ public class ButtonsControllers : MonoBehaviour
         menu.SetActive(false);
         settings.SetActive(true);
     }
-        
+
     public void onSaveClick()
     {
         menu.SetActive(true);
         settings.SetActive(false);
-
-        mouseSensetivity = settings.GetComponent<Settings>().getMouseSensetivity();
+        settingsController.mouseSensetivity = settings.GetComponent<Settings>().getMouseSensetivity();
     }
 }
