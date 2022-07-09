@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ApartmentScreamer : MonoBehaviour
 {
+    public AudioSource lamp;
+
+    public AudioClip lamp_broken;
+    public AudioClip lamp_switching;
+
     public new Light light;
     public GameObject apartment;
 
@@ -26,15 +31,24 @@ public class ApartmentScreamer : MonoBehaviour
         if (!isHappened && other.CompareTag("Player"))
         {
             isHappened = true;
-            light.gameObject.SetActive(false);
-            apartment.SetActive(true);
-            StartCoroutine(Disappearance());
+            StartCoroutine(Appearence());
         }
     }
 
     IEnumerator Disappearance()
     {
+        lamp.PlayOneShot(lamp_switching);
         yield return new WaitForSeconds(7);
+        light.gameObject.SetActive(true);
         apartment.SetActive(false);
+    }
+
+    IEnumerator Appearence()
+    {
+        lamp.PlayOneShot(lamp_broken);
+        yield return new WaitForSeconds(1.5f);
+        light.GetComponent<Light>().gameObject.SetActive(false);
+        apartment.SetActive(true);
+        StartCoroutine(Disappearance());
     }
 }

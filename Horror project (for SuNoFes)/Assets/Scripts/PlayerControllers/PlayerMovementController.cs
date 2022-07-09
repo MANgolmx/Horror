@@ -40,6 +40,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         MovementLogic();
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl)) { isCrouching = true; ChangeCrouchState(); }
