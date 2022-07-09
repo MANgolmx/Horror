@@ -12612,6 +12612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 296784979}
+  - component: {fileID: 296784980}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -12675,6 +12676,19 @@ Transform:
   m_Father: {fileID: 5396190041414060856}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &296784980
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296784978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5054847, y: 3.1857834, z: 1.9512625}
+  m_Center: {x: 3.324824, y: 1.0928917, z: 3.5316083}
 --- !u!1 &297981828
 GameObject:
   m_ObjectHideFlags: 0
@@ -51939,6 +51953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1232246786}
+  - component: {fileID: 1232246787}
   m_Layer: 0
   m_Name: GarageDoors (1)
   m_TagString: Untagged
@@ -51965,6 +51980,19 @@ Transform:
   m_Father: {fileID: 2103811}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &1232246787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232246785}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0697656, y: 4.4224195, z: 0.389892}
+  m_Center: {x: -0.63375705, y: 1.7112098, z: -5.7446165}
 --- !u!1 &1239471316
 GameObject:
   m_ObjectHideFlags: 0
@@ -115577,8 +115605,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08620443, y: 5.357581, z: 4.690379}
-  m_Center: {x: 0.061190914, y: 2.4609275, z: -4.2612133}
+  m_Size: {x: 0.38993132, y: 5.357581, z: 5.0584335}
+  m_Center: {x: 0.21305436, y: 2.4609275, z: -4.44524}
 --- !u!1 &4680111145745992114
 GameObject:
   m_ObjectHideFlags: 0
